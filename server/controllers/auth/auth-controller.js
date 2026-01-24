@@ -40,7 +40,7 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const checkU = await User.findOne({ email });
+    const checkUser = await User.findOne({ email });
     if (!checkUser)
       return res.json({
         success: false,
