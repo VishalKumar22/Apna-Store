@@ -30,7 +30,7 @@ const registerUser = async (req, res) => {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: e,
+      message: e.message,
     });
   }
 };
@@ -40,7 +40,7 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const checkUser = await User.findOne({ email });
+    const checkU = await User.findOne({ email });
     if (!checkUser)
       return res.json({
         success: false,
@@ -79,10 +79,10 @@ const loginUser = async (req, res) => {
       },
     });
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     res.status(500).json({
       success: false,
-      message: e,
+      message: e.message,
     });
   }
 };
